@@ -69,7 +69,7 @@ part of the stress marks) and generating **one sentence at a time**. Both are th
 | `script/build_script.py` | picks sentences from the VDU stressed corpus, filtered and quota'd (short sentences, questions, exclamations over-represented — that is what a voice lacks) |
 | `script/script-a-567.*`, `script-b-289.*` | the scripts we actually read: 567 plain sentences, then 289 with abbreviations, initials and foreign names |
 | `record/rec_server.py` | browser recorder, one sentence at a time, all browser audio processing off. Stdlib only |
-| `prepare/asr_check.py` | transcribes every take with a local Lithuanian ASR model (Paprika V3 by default — free, offline) |
+| `prepare/asr_check.py` | transcribes every take with a local Lithuanian ASR model (Kmynas v4 by default — free, offline, no NeMo needed) |
 | `prepare/build_clips.py` | drops the takes where you read something else, cuts the sentence out by energy, resamples to 24 kHz, levels, writes the manifests |
 | `train/lifecycle.sh` | rents the GPU, uploads, trains, fetches every checkpoint, and **verifies** the GPU is gone |
 | `train/pod_train.sh`, `train_config.json`, `data_config.json` | what runs on the GPU, and the config that worked first time |

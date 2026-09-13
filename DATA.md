@@ -28,7 +28,8 @@ and keep their own terms.
 |---|---|---|
 | [`kristijonas/krapas-Regina`](https://huggingface.co/kristijonas/krapas-Regina) | the voice | CC BY-NC 4.0 (inherited from OmniVoice weights) |
 | [`kristijonas/banano-kirtis-v2`](https://huggingface.co/kristijonas/banano-kirtis-v2) | stress marking | CC BY 4.0 |
-| [`kristijonas/paprika-whisper-lt-v3`](https://huggingface.co/kristijonas/paprika-whisper-lt-v3) | checking the takes | Apache 2.0 |
+| [`kristijonas/kmynas-parakeet-lt-v4`](https://huggingface.co/kristijonas/kmynas-parakeet-lt-v4) | checking the takes (default) | CC BY 4.0 |
+| [`kristijonas/paprika-whisper-lt-v3`](https://huggingface.co/kristijonas/paprika-whisper-lt-v3) | checking the takes (whisper alternative) | CC BY 4.0 |
 | [`k2-fsa/OmniVoice`](https://github.com/k2-fsa/OmniVoice) | the base model you fine-tune | code Apache 2.0, weights CC BY-NC |
 
 Because the OmniVoice weights are CC BY-NC, any voice fine-tuned from them is non-commercial too. A
