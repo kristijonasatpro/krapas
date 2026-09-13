@@ -1,0 +1,2 @@
+{"train": [{"manifest_path": ["/workspace/ft/tokens/train/data.lst"]}],
+ "dev":   [{"manifest_path": ["/workspace/ft/tokens/dev/data.lst"]}]}

@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+takes/
+takes*.asr.json
+clips/
+*.tgz
+results/
+out/
+text/names/

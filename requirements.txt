@@ -1,0 +1,18 @@
+# text layer (normalisation + stress marking)
+num2words
+torch
+transformers
+
+# picking a reading script from the corpus
+pyarrow
+huggingface_hub
+
+# checking and cutting the takes
+numpy
+scipy
+soundfile
+
+# generating audio
+omnivoice==0.2.1
+
+# record/rec_server.py and train/runpod_v2.py need nothing beyond the standard library
