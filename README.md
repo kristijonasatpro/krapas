@@ -89,7 +89,7 @@ That has a pleasant consequence. When a generated sentence sounds wrong, look at
 almost always the mark is wrong rather than the voice, and a wrong mark is one line in a dictionary, not a
 retrain.
 
-Marking stress before the voice model is Mindaugas Žvirblis's idea: 32 letters are too few for a voice, and
+Marking stress before the voice model is [Mindaugas Žvirblis](https://github.com/blinkinglight)'s idea: 32 letters are too few for a voice, and
 marking stress turns them into about 80 distinct sounds.
 
 ## Numbers from the run that produced krapas-Regina
