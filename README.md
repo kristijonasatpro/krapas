@@ -66,7 +66,7 @@ part of the stress marks) and generating **one sentence at a time**. Both are th
 
 | | |
 |---|---|
-| `script/build_script.py` | picks sentences from the VDU stressed corpus, filtered and quota'd (short sentences, questions, exclamations over-represented — that is what a voice lacks) |
+| `script/build_script.py` | picks sentences from the stressed corpus, filtered and quota'd (short sentences, questions, exclamations over-represented — that is what a voice lacks) |
 | `script/script-a-567.*`, `script-b-289.*` | the scripts we actually read: 567 plain sentences, then 289 with abbreviations, initials and foreign names |
 | `record/rec_server.py` | browser recorder, one sentence at a time, all browser audio processing off. Stdlib only |
 | `prepare/asr_check.py` | transcribes every take with a local Lithuanian ASR model (Kmynas v4 by default — free, offline, no NeMo needed) |

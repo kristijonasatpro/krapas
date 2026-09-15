@@ -5,7 +5,7 @@ and keep their own terms.
 
 | File | Source | Licence |
 |---|---|---|
-| `script/script-a-567.*` | sentences from [`meldynamics/lt-stressed-corpus`](https://huggingface.co/datasets/meldynamics/lt-stressed-corpus) (MATAS + ALKSNIS, Vytautas Magnus University), with the corpus's own normative stress marks | CC BY 4.0 |
+| `script/script-a-567.*` | sentences from [`meldynamics/lt-stressed-corpus`](https://huggingface.co/datasets/meldynamics/lt-stressed-corpus) (MATAS + ALKSNIS, VDU / CLARIN-LT), stressed by the dataset's author through the VDU Kirtis service matched against the corpora's morphological annotation | CC BY 4.0 |
 | `script/script-b-289.*` | 249 sentences from the same corpus + 40 written for this project to cover brand and product names | CC BY 4.0 |
 | `text/lexicon/corpus_lexicon.json` | word forms with exactly one attested stress, extracted from the same corpus (~130k forms) | CC BY 4.0 |
 | `text/lexicon/corpus_ambiguous.json` | homograph forms with their attested stress variants, same corpus | CC BY 4.0 |
