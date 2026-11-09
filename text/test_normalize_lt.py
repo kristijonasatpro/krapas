@@ -20,6 +20,18 @@ CASES = [
     ("t. y. 12 proc.", "tai yra dvylika procentų."),
     ("Tel. +370 612 34567.", "Telefonas plius trys septyni nulis, šeši vienas du, trys keturi penki šeši septyni."),
     ("Be skaičių.", "Be skaičių."),
+    ("Pirmasis vyks antradienį, 14 valandą, Kongresų rūmuose.", "Pirmasis vyks antradienį, keturioliktą valandą, Kongresų rūmuose."),
+    ("Dirbame nuo 9 iki 17 valandos.", "Dirbame nuo devintos iki septynioliktos valandos."),
+    ("Iki 9 valandos.", "Iki devintos valandos."),
+    ("Liko 2 valandos.", "Liko dvi valandos."),
+    ("Laukėme 14 valandų.", "Laukėme keturiolika valandų."),
+    ("Truko 24 valandas.", "Truko dvidešimt keturias valandas."),
+    ("Truko 21 valandą.", "Truko dvidešimt vieną valandą."),
+    ("21 valandą bus koncertas.", "Dvidešimt pirmą valandą bus koncertas."),
+    ("Trukmė gali būti nuo 1 iki 21 valandos.", "Trukmė gali būti nuo vienos iki dvidešimt vienos valandos."),
+    ("Susitinkame 9–10 valandą.", "Susitinkame devintą dešimtą valandą."),
+    ("Susitinkame 14\u00a0valandą.", "Susitinkame keturioliktą valandą."),
+    ("Susitiksime 1 valandą.", "Susitiksime vieną valandą."),
 ]
 
 

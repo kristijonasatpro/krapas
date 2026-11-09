@@ -227,6 +227,28 @@ def normalize(text, initials="letter", range_sep=" "):
         return f"{cardinal(h, 'f')} {'nulis ' if mi < 10 else ''}{cardinal(mi, 'f')}"
     t = re.sub(r"\b([01]?\d|2[0-3]):([0-5]\d)\b([  ]?val\.)?", clock, t)
     t = re.sub(r"\b(\d{1,3}):(\d{1,3})\b", lambda m: f"{cardinal(int(m.group(1)))} – {cardinal(int(m.group(2)))}", t)   # sports score
+    # clock hours: "14 valandą" -> keturioliktą valandą. After 2+ a singular hour noun can only be the ordinal (two hours
+    # = dvi valandas). "valandos" is also the plural (liko 2 valandos), so it counts only after 10-20 (whose plural is
+    # valandų) or a genitive preposition (iki 9 valandos). 1 and 21 also take a singular noun as a duration (truko 21
+    # valandą): 1 stays as written, 21 too within three words after a duration word (truko, trunka, trukmė, per).
+    HOUR_END = {"valanda": "a", "valandą": "ą", "valandos": "os", "valandai": "ai", "valandoje": "oje"}
+    H, SP = r"([1-9]|1\d|2[0-4])", "[ \u00a0]"
+    def as_hour(n, w, m):
+        if n % 10 == 1 and n != 11:
+            return n != 1 and not re.search(r"\b((už)?tru[kn]\w*|trukm\w*|per)\W+(\w+\W+){0,2}$", m.string[:m.start()].lower())
+        return w.lower() != "valandos" or 10 <= n <= 20 or prep_case(m.string, m.start()) == "gen"
+    def hour_span(m):        # "nuo 9 iki 17 valandos", "9–10 valandą": both ends are hours when the last one is
+        a, b, w = int(m.group(2)), int(m.group(4)), m.group(5)
+        if not as_hour(b, "valandą" if m.group(1) else w, m):   # a duration: nuo vienos iki dvidešimt vienos valandos
+            return f"{m.group(1)}{cardinal(a, 'f', 'gen')}{m.group(3)}{cardinal(b, 'f', 'gen')} {w}" if m.group(1) else m.group()
+        end = HOUR_END[w.lower()]
+        return f"{m.group(1) or ''}{ordinal(a, end)}{m.group(3) if m.group(1) else range_sep}{ordinal(b, end)} {w}"
+    t = re.sub(r"(?<![\w,.:–-])(nuo" + SP + r"+)?" + H + r"(" + SP + r"+iki" + SP + r"+|" + SP + r"?[–-]" + SP + r"?)" + H + SP + r"+(valand(?:a|ą|os|ai|oje))(?!\w)",
+               lambda m: hour_span(m) if (m.group(1) is not None) == ("iki" in m.group(3)) else m.group(), t, flags=re.I)
+    def hour(m):
+        n, w = int(m.group(1)), m.group(2)
+        return f"{ordinal(n, HOUR_END[w.lower()])} {w}" if as_hour(n, w, m) else m.group()
+    t = re.sub(r"(?<![\w,.:–-])" + H + SP + r"+(valand(?:a|ą|os|ai|oje))(?!\w)", hour, t, flags=re.I)
     # phone numbers: digit by digit
     def phone(m): return ("plius " if m.group().lstrip().startswith("+") else "") + ", ".join(" ".join(DIGIT[int(c)] for c in g) for g in re.findall(r"\d+", m.group()))
     t = re.sub(r"\+\d[\d  ]{6,}\d|(?<=[Tt]elefonas )\d[\d  ]{6,}\d|\b8[  ]\d{3}[  ]\d{5}\b", phone, t)
