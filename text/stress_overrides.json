@@ -1,5 +1,5 @@
 {
- "_comment": "form -> stressed form (NFC). Consulted before the corpus lexicon and the model, for words where both were heard to be wrong. Context-dependent homographs cannot go here — one form, one answer. A key starting with a capital applies only to capitalised tokens (Sènos = the Seine, senõs = old), which is how a proper noun gets a different stress from the common noun spelled the same way. Add an entry only after listening; this file overrides everything else.",
+ "_comment": "form -> stressed form (NFC). Consulted before the corpus lexicon and the model, for words where both were heard to be wrong. Context-dependent homographs cannot go here — one form, one answer. A key starting with a capital applies only to capitalised tokens (Sènos = the Seine, senõs = old), which is how a proper noun gets a different stress from the common noun spelled the same way. Add an entry only after listening; this file overrides everything else. 2026-11-02 by ear: tróškulį (troškulỹs 3b) and Neryjè (the river Nerìs 4), whole singular paradigms.",
  "panašiai": "panašiaĩ",
  "agentas": "àgentas",
  "agento": "àgento",
@@ -71,5 +71,16 @@
  "paklausė": "pakláusė",
  "paklausiau": "pakláusiau",
  "paklausk": "pakláusk",
- "paklausti": "pakláusti"
+ "paklausti": "pakláusti",
+ "troškulio": "tróškulio",
+ "troškuliui": "tróškuliui",
+ "troškulį": "tróškulį",
+ "troškuliu": "troškuliù",
+ "troškulyje": "troškulyjè",
+ "neris": "nerìs",
+ "neries": "neriẽs",
+ "neriai": "nẽriai",
+ "nerį": "nẽrį",
+ "nerimi": "nerimì",
+ "neryje": "neryjè"
 }
