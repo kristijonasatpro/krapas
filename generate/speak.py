@@ -57,7 +57,7 @@ def main():
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
 
-    text = open(a.txt).read()
+    text = open(a.txt, encoding="utf-8").read()
     text = re.sub(r"\S+@\S+\.\w+", lambda m: m.group().replace("@", " eta ").replace(".", " taškas "), text)
     plan = []
     for pi, p in enumerate([p for p in re.split(r"\n\s*\n", text) if p.strip()]):
@@ -67,7 +67,7 @@ def main():
         for si, (s, n) in enumerate(zip(orig, norm)):
             marked = n if a.plain else kirtis_v2.stress_text(n, normalize=False)
             plan.append({"p": pi, "i": si, "plain": s, "normalized": n, "stressed": train_form(marked)})
-    json.dump(plan, open(out / "stressed.json", "w"), ensure_ascii=False, indent=1)
+    json.dump(plan, open(out / "stressed.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(len(plan), "sentences", flush=True)
 
     # a checkpoint fetched from a training run has no audio tokenizer of its own; borrow the base model's
@@ -92,7 +92,7 @@ def main():
         print(f"{name}: {len(w)/SR:.1f}s in {time.time()-t0:.1f}s | {row['normalized'][:70]}", flush=True)
         full += [w, np.zeros(int(GAP_SENT * SR), np.float32)]
     sf.write(out / "full.wav", np.concatenate(full), SR)
-    json.dump(plan, open(out / "stressed.json", "w"), ensure_ascii=False, indent=1)
+    json.dump(plan, open(out / "stressed.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("full.wav", round(sum(r["dur"] for r in plan), 1), "s")
 
 

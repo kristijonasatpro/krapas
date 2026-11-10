@@ -36,14 +36,14 @@ MARKS = set(COMB.values())
 WORD = re.compile(r"[\w'̀́̃]+|[^\w\s]", re.UNICODE)
 
 _tok = _model = _rules = None
-_clex_raw = json.load(open(CORPUS_DIR / "corpus_lexicon.json"))
+_clex_raw = json.load(open(CORPUS_DIR / "corpus_lexicon.json", encoding="utf-8"))
 CLEX = {k: v["m"] for k, v in _clex_raw.items()}
 CLEX_RARE = {k for k, v in _clex_raw.items() if v["n"] <= 1}
 # second lexicon: en.wiktionary Lithuanian (kaikki.org extract, CC BY-SA), 139k stressed inflected forms incl. 2.5k names;
 # 96 % agreement with the corpus on shared forms (the rest are homographs) — used only for forms the corpus does not know
 WLEX = {k: next(iter(v)) for k, v in json.load(open(Path(__file__).parent / "wikt_lexicon.json", encoding="utf-8")).items() if len(v) == 1}   # single sightings: not authoritative for capitalised words (Nausėdà was a 1990s common noun)
-CAMB = json.load(open(CORPUS_DIR / "corpus_ambiguous.json"))
-CBARE = set(json.load(open(CORPUS_DIR / "corpus_bare.json")))   # corpus leaves these unmarked (a), pan., NATO
+CAMB = json.load(open(CORPUS_DIR / "corpus_ambiguous.json", encoding="utf-8"))
+CBARE = set(json.load(open(CORPUS_DIR / "corpus_bare.json", encoding="utf-8")))   # corpus leaves these unmarked (a), pan., NATO
 
 
 def _load():
